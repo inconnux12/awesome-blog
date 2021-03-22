@@ -1,5 +1,5 @@
 <?php 
-$sql="select * from categorie;";
+$sql="SELECT * FROM categorie";
 $res=$con->query($sql);
 ?> 
     <div class="col s3 offset-s1">
