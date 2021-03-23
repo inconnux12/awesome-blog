@@ -14,7 +14,7 @@ elseif($action=='cat'){
 ?>
 
           <?php if($action=='pub'){?>
-          <form action="/awesome-blog/asset/php/private/mods_p.php?id=<?= $id?>" method="post">
+          <form action="/<?=DIR?>/asset/php/private/mods_p.php?id=<?= $id?>" method="post">
                     <div class="input-field col s6">
                         <input name="title_pub" id="title_pub" type="text" class="validate clr-inp" value=<?= $row2['title_pub']?>>
                         <label for="title_pub">title post</label>
@@ -42,7 +42,7 @@ elseif($action=='cat'){
                     </div>    
                 </form>
                 <?php } elseif($action=='cat'){ ?> 
-                    <form action="/awesome-blog/php/private/mods_c.php?id=<?= $id?>" method="post">
+                    <form action="/<?=DIR?>/php/private/mods_c.php?id=<?= $id?>" method="post">
                         <div class="input-field col s12">
                             <input name="name_cat" id="name_cat" type="text" class="validate clr-inp" value="<?= $row2['name_cat'] ?>">
                             <label for="name_cat">name of categorie</label>

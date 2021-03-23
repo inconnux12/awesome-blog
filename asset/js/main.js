@@ -1,4 +1,5 @@
 
+const DIR= window.location.pathname.split('/')[1]
 function add(id){
     let ico=document.querySelector(".fav"+id)
     let getxml= new XMLHttpRequest()
@@ -12,7 +13,7 @@ function add(id){
             }
         }
     }
-    getxml.open('GET','/awesome-blog/asset/php/private/save.php?id='+id,true)
+    getxml.open('GET','/'+DIR+'/asset/php/private/save.php?id='+id,true)
     getxml.send()
 }
 
@@ -27,6 +28,6 @@ function search(val,typ) {
                 tbody.classList.remove('hide')
         }
     }
-    getxml.open('GET','/awesome-blog/asset/php/private/search.php?q='+val+'&type='+typ,true)
+    getxml.open('GET','/'+DIR+'/asset/php/private/search.php?q='+val+'&type='+typ,true)
     getxml.send()
 }

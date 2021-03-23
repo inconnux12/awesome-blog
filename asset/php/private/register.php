@@ -1,5 +1,6 @@
 <?php
 require "connection.php";
+require "const.php";
 if(isset($_POST['role']))
     $role=1;
 else
@@ -8,7 +9,7 @@ $query="insert into users(user_f_name,user_l_name,mail,password,role) values('".
 if($con->query($query)){
     session_start();
     $_SESSION['register']=1;
-    header('Location: /awesome-blog/login');
+    header('Location: /'.DIR.'/login');
     exit;
 }
 else{

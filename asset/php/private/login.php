@@ -1,6 +1,10 @@
 <?php
 require "connection.php"; 
+require "const.php";
 session_start();
+if(!defined('DIR')){
+    define("DIR",explode("www\\",__dir__)[1]);
+}
 $sql="select user_id,password,role from users where user_l_name='".$_POST['user_l_name']."'";
 $result = $con->query($sql);
 if($result->num_rows>0){
@@ -14,7 +18,7 @@ if($result->num_rows>0){
             else{
                 $_SESSION['role']=false;
             }
-            header('Location: /awesome-blog');
+            header('Location: /'.DIR);
             exit();
         }
         else{

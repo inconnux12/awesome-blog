@@ -7,7 +7,7 @@ require "asset/php/index/nav.php";
         while($row=$resultat->fetch_assoc()){?>
             <div class="col s12 article" style="position: relative;">
                 <div class="article_image">
-                    <img class="img" src="/awesome-blog/asset/img/img.png" alt=""/>
+                    <img class="img" src="/<?=DIR?>/asset/img/img.png" alt=""/>
                 </div>
                 <div class="article_contenu">
                     <div class="article_date" style="font-size:13px;">publier le <?=$row['created_at']?></div>

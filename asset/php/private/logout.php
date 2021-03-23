@@ -1,6 +1,8 @@
 <?php
 session_start();
+require "const.php";
 unset($_SESSION['login']);
-header('Location: /awesome-blog');
+echo DIR;
+header('Location: /'.DIR);
 exit();
 ?>

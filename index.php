@@ -1,12 +1,13 @@
 <?php 
 session_start();
+define("DIR",explode("www\\",__dir__)[1]);
 require "vendor/autoload.php"; 
 require "asset/php/private/connection.php";
 require "asset/php/private/slugify.php";
 
 
 $router=new AltoRouter();
-$router->setBasePath("/awesome-blog");
+$router->setBasePath("/".DIR);
 $router->map('GET','/',function() use($con){
     require "asset/php/pages/home.php";
 });
@@ -23,7 +24,7 @@ $router->map('GET','/posts/[a:action]',function($action) use($con){
         }
     }
     else{
-        header('Location:/awesome-blog/');   
+        header('Location:/'.DIR.'/');   
     }
 
 });
@@ -34,7 +35,7 @@ $router->map('GET','/posts/add/[a:action]',function($action) use($con){
         }
     }
     else{
-        header('Location:/awesome-blog/');   
+        header('Location:/'.DIR.'/');   
     }
 
 });
@@ -45,7 +46,7 @@ $router->map('GET','/posts/mod/[a:action]/[i:id]',function($action,$id) use($con
         }
     }
     else{
-        header('Location:/awesome-blog/');   
+        header('Location:/'.DIR.'/');   
     }
 
 });
