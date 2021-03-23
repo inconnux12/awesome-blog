@@ -1,9 +1,11 @@
 <?php
 require "connection.php";
 if(isset($_POST)){
-    $query="update publications set title_pub='".$_POST['title_pub']."' , desc_pub='".$_POST['desc_pub']."' , cont_pub='".$_POST['cont_pub']."' , id_cat='".$_POST['id_cat']."' where id_pub='".$_GET['id']."'";
+    $desc=$con->real_escape_string($_POST['desc_pub']);
+    $cont=$con->real_escape_string($_POST['cont_pub']);
+    $query="update publications set title_pub='".$_POST['title_pub']."' , desc_pub='".$desc."' , cont_pub='".$cont."' , id_cat='".$_POST['id_cat']."' where id_pub='".$_GET['id']."'";
     if($con->query($query)){
-        header('Location: http://'.$_SERVER['HTTP_HOST'].'/blog');
+        header('Location: /blog/posts');
         exit;
     }
     else{

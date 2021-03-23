@@ -1,3 +1,9 @@
+          </div>
+      </div>
+    </div>
+  </div>   
+ </div>
+ 
 <footer class="page-footer  #546e7a blue-grey darken-1">
           <div class="container">
             <div class="row">
@@ -23,5 +29,10 @@
             </div>
           </div>
         </footer>
-        <script src="asset/js/main.js"></script> 
-   <script src="asset/materialize/js/materialize.min.js"></script>
+        <script src="/blog/asset/js/main.js"></script> 
+        <script src="/blog/asset/materialize/js/materialize.min.js"></script>
+        <script src="/blog/asset/js/style.js"></script> 
+  
+</body>
+
+</html>

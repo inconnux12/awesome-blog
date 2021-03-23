@@ -1,30 +1,65 @@
-<?php
+<?php 
 session_start();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php require "asset/php/index/header.php" ?>
-    <title>My Blog | Life Blog</title>
-</head>
-<?php require "asset/php/index/display_publications.php";?>
-<?php require "asset/php/private/connection.php";?>
-<body>
-  <?php require "asset/php/index/nav.php" ?>
-  <div class="main"style="padding:60px 0">
-    <div class="row">
-      <div class="col s8 offset-s2 post" id="containe">
-        <div class="row" id="posts">
-          <?php $display_pub($con);?>
-        </div>
-      </div>
-    </div>
-  </div>   
- </div>
- <?php require "asset/php/index/footer.php" ?>
-   <script src="js/main.js"></script> 
-  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/style.js"></script>
-</body>
+require "vendor/autoload.php"; 
+require "asset/php/private/connection.php";
+require "asset/php/private/slugify.php";
 
-</html>
+
+$router=new AltoRouter();
+$router->setBasePath('/blog');
+$router->map('GET','/',function() use($con){
+    require "asset/php/pages/home.php";
+});
+$router->map('GET','/login',function() use($con){
+    require "asset/php/pages/login.php";
+});
+$router->map('GET','/register',function() use($con){
+    require "asset/php/pages/register.php";
+});
+$router->map('GET','/posts/[a:action]',function($action) use($con){
+    if(isset($_SESSION['login'])){
+        if(isset($_SESSION['role'])&&$_SESSION['role']){
+            require "asset/php/pages/displays.php";
+        }
+    }
+    else{
+        header('Location:/blog/');   
+    }
+
+});
+$router->map('GET','/posts/add/[a:action]',function($action) use($con){
+    if(isset($_SESSION['login'])){
+        if(isset($_SESSION['role'])&&$_SESSION['role']){
+            require "asset/php/pages/add.php";
+        }
+    }
+    else{
+        header('Location:/blog/');   
+    }
+
+});
+$router->map('GET','/blog/posts/mod/[a:action]/[i:id]',function($action,$id) use($con){
+    if(isset($_SESSION['login'])){
+        if(isset($_SESSION['role'])&&$_SESSION['role']){
+            require "asset/php/pages/mody.php";
+        }
+    }
+    else{
+        header('Location:/blog/');   
+    }
+
+});
+$router->map('GET','/bookmarks',function() use($con){
+    if(isset($_SESSION['login'])){
+        require "asset/php/pages/bookmarks.php";
+    }
+});
+$router->map('GET','/post/[:action]',function($action) use($con){
+    require "asset/php/pages/article.php";
+});
+$match = $router->match();
+if( is_array($match) && is_callable( $match['target'] ) ) {
+	call_user_func_array( $match['target'], $match['params'] ); 
+}
+
+

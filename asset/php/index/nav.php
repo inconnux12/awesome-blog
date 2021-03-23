@@ -1,15 +1,11 @@
 
   
          <!-- Dropdown Structure -->
-         <!--ul id="dropdown1" class="dropdown-content">
-          <li><a href="#">Category - 1 -</a></li>
-          <li><a href="#">Category - 2 - </a></li>
-          <li><a href="#">Category - 3 - </a></li>
-        </ul-->
+        
 <div class="navbar-fixed"> 
   <nav class="nav-extended #546e7a blue-grey darken-1">
     <div class="nav-wrapper">
-      <a href="index.php" class="brand-logo ">Welcome To Life Blog</a>
+      <a href="/blog" class="brand-logo ">Welcome To Life Blog</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
             <!--li> 
             SEARCH FIELD
@@ -22,8 +18,8 @@
              </form>
             </li-->    
       <?php if(!isset($_SESSION['login'])){ ?> 
-        <li class="tab"><a  href="login.php" ><i class="material-icons left">edit</i>Sign In</a></li>
-        <li class="tab"><a  href="register.php" ><i class="material-icons left">add</i>Sign Up</a> </li>
+        <li class="tab"><a  href="/blog/login" ><i class="material-icons left">edit</i>Sign In</a></li>
+        <li class="tab"><a  href="/blog/register" ><i class="material-icons left">add</i>Sign Up</a> </li>
       <?php } ?>
       </ul>
     </div>
@@ -32,14 +28,19 @@
         <?php
           if(isset($_SESSION['login'])){
             if(isset($_SESSION['role'])&&$_SESSION['role']){ ?>
-        <li class="tab"><a href="displays.php?type=pub" id="list_pub">articles</a></li>
-        <li class="tab"><a href="displays.php?type=cat" id="list_cat">categories</a></li>
+        <li class="tab"><a href="/blog/posts/pub" id="list_pub">articles</a></li>
+        <li class="tab"><a href="/blog/posts/cat" id="list_cat">categories</a></li>
         <?php } ?>
-        <li class="tab"><a href="bookmarks.php">bookmarks</a></li>
-        <li class="tab"><a href="asset/php/private/logout.php">logout</a></li>
+        <li class="tab"><a href="/blog/bookmarks">bookmarks</a></li>
+        <li class="tab"><a href="/blog/asset/php/private/logout.php">logout</a></li>
         <?php }?>
+        
         <li class="tab"><a class="dropdown-trigger" data-target="dropdown1" href="#">Cateories<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
     </div>
   </nav>
 </div>
+<div class="main"style="padding:60px 0">
+    <div class="row">
+      <div class="col s8 offset-s2 post" id="containe">
+        <div class="row" id="posts">

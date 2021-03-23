@@ -57,7 +57,7 @@ function add(id){
             }
         }
     }
-    getxml.open('GET','asset/php/private/save.php?id='+id,true)
+    getxml.open('GET','/blog/asset/php/private/save.php?id='+id,true)
     getxml.send()
 }
 
@@ -72,7 +72,7 @@ function search(val,typ) {
                 tbody.classList.remove('hide')
         }
     }
-    getxml.open('GET','asset/php/private/search.php?q='+val+'&type='+typ,true)
+    getxml.open('GET','/blog/asset/php/private/search.php?q='+val+'&type='+typ,true)
     getxml.send()
 }
 
