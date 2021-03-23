@@ -1,0 +1,13 @@
+{
+    "name": "benno/blog",
+    "minimum-stability": "stable",
+    "description": "hhh",
+    "autoload": {
+        "psr-4": {
+            "app\\":"src"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}
