@@ -7,7 +7,7 @@ if($action=='pub'){
 }
 ?>
           <?php if($action=='pub'){?>
-          <form action="/asset/php/private/adds_p.php" method="post">
+          <form action="/awesome-blog/asset/php/private/adds_p.php" method="post">
                     <div class="input-field col s6">
                         <input name="title_pub" id="title_pub" type="text" class="validate clr-inp">
                         <label for="title_pub">title post</label>

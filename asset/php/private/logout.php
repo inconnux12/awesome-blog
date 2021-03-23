@@ -1,6 +1,6 @@
 <?php
 session_start();
 unset($_SESSION['login']);
-header('Location: /blog');
+header('Location: /awesome-blog');
 exit();
 ?>

@@ -5,7 +5,7 @@
 <div class="navbar-fixed"> 
   <nav class="nav-extended #546e7a blue-grey darken-1">
     <div class="nav-wrapper">
-      <a href="/blog" class="brand-logo ">Welcome To Life Blog</a>
+      <a href="/awesome-blog" class="brand-logo ">Welcome To Life Blog</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
             <!--li> 
             SEARCH FIELD
@@ -18,8 +18,8 @@
              </form>
             </li-->    
       <?php if(!isset($_SESSION['login'])){ ?> 
-        <li class="tab"><a  href="/blog/login" ><i class="material-icons left">edit</i>Sign In</a></li>
-        <li class="tab"><a  href="/blog/register" ><i class="material-icons left">add</i>Sign Up</a> </li>
+        <li class="tab"><a  href="/awesome-blog/login" ><i class="material-icons left">edit</i>Sign In</a></li>
+        <li class="tab"><a  href="/awesome-blog/register" ><i class="material-icons left">add</i>Sign Up</a> </li>
       <?php } ?>
       </ul>
     </div>
@@ -28,11 +28,11 @@
         <?php
           if(isset($_SESSION['login'])){
             if(isset($_SESSION['role'])&&$_SESSION['role']){ ?>
-        <li class="tab"><a href="/blog/posts/pub" id="list_pub">articles</a></li>
-        <li class="tab"><a href="/blog/posts/cat" id="list_cat">categories</a></li>
+        <li class="tab"><a href="/awesome-blog/posts/pub" id="list_pub">articles</a></li>
+        <li class="tab"><a href="/awesome-blog/posts/cat" id="list_cat">categories</a></li>
         <?php } ?>
-        <li class="tab"><a href="/blog/bookmarks">bookmarks</a></li>
-        <li class="tab"><a href="/blog/asset/php/private/logout.php">logout</a></li>
+        <li class="tab"><a href="/awesome-blog/bookmarks">bookmarks</a></li>
+        <li class="tab"><a href="/awesome-blog/asset/php/private/logout.php">logout</a></li>
         <?php }?>
         
         <li class="tab"><a class="dropdown-trigger" data-target="dropdown1" href="#">Cateories<i class="material-icons right">arrow_drop_down</i></a></li>

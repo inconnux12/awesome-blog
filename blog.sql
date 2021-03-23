@@ -40,12 +40,6 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`id_cat`, `name_cat`, `created_at`, `updated_at`) VALUES
-(8, 'biologie', '2021-03-19 20:01:03', '2021-03-19 20:01:03'),
-(5, 'informatique', '2021-03-19 10:07:30', '2021-03-19 13:36:53'),
-(9, 'medecine', '2021-03-19 20:03:23', '2021-03-19 20:03:23'),
-(10, 'physique', '2021-03-19 20:04:28', '2021-03-19 20:04:28'),
-(11, 'chimie', '2021-03-20 12:09:13', '2021-03-20 12:09:13');
 
 -- --------------------------------------------------------
 
@@ -67,11 +61,6 @@ CREATE TABLE IF NOT EXISTS `markbook` (
 -- Déchargement des données de la table `markbook`
 --
 
-INSERT INTO `markbook` (`id_pub`, `user_id`, `created_at`, `updated_at`) VALUES
-(3, 23, '2021-03-19 20:05:09', '2021-03-19 20:05:09'),
-(1, 1, '2021-03-19 19:30:19', '2021-03-19 19:30:19'),
-(1, 23, '2021-03-19 20:05:05', '2021-03-19 20:05:05'),
-(5, 1, '2021-03-19 21:45:58', '2021-03-19 21:45:58');
 
 -- --------------------------------------------------------
 
@@ -96,12 +85,6 @@ CREATE TABLE IF NOT EXISTS `publications` (
 -- Déchargement des données de la table `publications`
 --
 
-INSERT INTO `publications` (`id_pub`, `title_pub`, `desc_pub`, `cont_pub`, `created_at`, `uploaded_at`, `id_cat`) VALUES
-(1, 'php in laravel', 'this is an article about php in laravel', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. \r\n                  Deserunt consequuntur vero, sapiente minus soluta nisi enim debitis id!\r\n                  Dolorem molestias accusamus eos possimus,\r\n                  incidunt nobis repellat eum laboriosam quam aliquam?', '2021-03-18 14:37:43', '2021-03-19 10:08:31', 5),
-(3, 'react JS', 'this article is about reactjs', 'React est une bibliothÃ¨que JavaScript libre dÃ©veloppÃ©e par Facebook depuis 2013. Le but principal de cette bibliothÃ¨que est de faciliter la crÃ©ation d\'application web monopage, via la crÃ©ation de composants dÃ©pendant d\'un Ã©tat et gÃ©nÃ©rant une page HTML Ã  chaque changement d\'Ã©tat', '2021-03-18 15:01:51', '2021-03-19 10:08:31', 5),
-(4, 'Angular JS', 'this article is about AngularJS', 'DÃ©veloppÃ© par Google, Angular est un Framework open source Ã©crit en JavaScript qui permet la crÃ©ation dâ€™applications Web et plus particuliÃ¨rement de ce quâ€™on appelle des Single Page Applications', '2021-03-18 15:03:10', '2021-03-19 10:08:31', 5),
-(5, 'cancer', 'this article is about cancer.', 'Le cancer est une maladie provoquée par la transformation de cellules qui deviennent anormales et prolifèrent de façon excessive. Ces cellules déréglées finissent parfois par former une masse qu\'on appelle tumeur maligne.', '2021-03-19 10:09:38', '2021-03-19 10:09:38', 6),
-(7, 'JSON ', 'this article is about Json', 'JavaScript Object Notation (JSON) est un format de donnÃ©es textuelles dÃ©rivÃ© de la notation des objets du langage JavaScript. Il permet de reprÃ©senter de l\'information structurÃ©e comme le permet XML par exemple.', '2021-03-19 20:00:14', '2021-03-19 20:00:14', 5);
 
 -- --------------------------------------------------------
 

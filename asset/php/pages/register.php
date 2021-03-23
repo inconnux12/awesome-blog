@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/materialize/css/materialize.min.css">
-    <link rel="stylesheet" href="asset/css/ico.min.css">
-    <link rel="stylesheet" href="asset/css/login.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/css/ico.min.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/css/login.css">
     <title>register</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <div class="row z-depth-1 lgn-cnt">
             <div class="col s6 form-side">
                 <div class="row col s12 lgn-tlt">REGISTER</div>
-                <form action="asset/php/private/register.php" method="post">
+                <form action="/awesome-blog/asset/php/private/register.php" method="post">
                     <div class="input-field col s6">
                         <input id="first_name" type="text" class="validate clr-inp" name="user_f_name">
                         <label for="first_name">First Name</label>
@@ -54,6 +54,6 @@
             </div>
         </div>
     </div>
-    <script src="asset/materialize/js/materialize.min.js"></script>
+    <script src="/awesome-blog/asset/materialize/js/materialize.min.js"></script>
 </body>
 </html>

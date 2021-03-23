@@ -14,7 +14,7 @@ if($result->num_rows>0){
             else{
                 $_SESSION['role']=false;
             }
-            header('Location: /blog');
+            header('Location: /awesome-blog');
             exit();
         }
         else{

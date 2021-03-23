@@ -10,9 +10,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/materialize/css/materialize.min.css">
-    <link rel="stylesheet" href="asset/css/ico.min.css">
-    <link rel="stylesheet" href="asset/css/login.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/css/ico.min.css">
+    <link rel="stylesheet" href="/awesome-blog/asset/css/login.css">
     <title>no</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
                 <small style="color:red;text-align:center;">error please retry</small>
                 <?php  }  ?>
                 <div class="row col s12 lgn-tlt">LOGIN</div>
-                <form action="asset/php/private/login.php" method="post">
+                <form action="/awesome-blog/asset/php/private/login.php" method="post">
                     <div class="input-field col s12">
                         <input id="email" type="text" class="validate clr-inp" name="user_l_name">
                         <label for="email">Last Name</label>
@@ -47,11 +47,11 @@
             <div class="col s6 img-side">
                 <h3>Welcome to Login</h3>
                 <h5>don't have an account?</h5>
-                <a href="register.php" class=" waves-light btn-large clr-btn">register</a>
+                <a href="/awesome-blog/register" class=" waves-light btn-large clr-btn">register</a>
             </div>
         </div>
     </div>
     <?php unset($_SESSION['error']);unset($_SESSION['register']);$_SESSION['error']=false;$_SESSION['register']=false;?>
-    <script src="asset/materialize/js/materialize.min.js"></script>
+    <script src="/awesome-blog/asset/materialize/js/materialize.min.js"></script>
 </body>
 </html>

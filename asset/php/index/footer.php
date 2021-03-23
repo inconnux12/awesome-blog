@@ -29,9 +29,9 @@
             </div>
           </div>
         </footer>
-        <script src="/blog/asset/js/main.js"></script> 
-        <script src="/blog/asset/materialize/js/materialize.min.js"></script>
-        <script src="/blog/asset/js/style.js"></script> 
+        <script src="/awesome-blog/asset/js/main.js"></script> 
+        <script src="/awesome-blog/asset/materialize/js/materialize.min.js"></script>
+        <script src="/awesome-blog/asset/js/style.js"></script> 
   
 </body>
 

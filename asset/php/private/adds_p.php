@@ -6,7 +6,7 @@ if(isset($_POST)){
     $cont=$con->real_escape_string($_POST['cont_pub']);
     $query="insert into publications(title_pub,desc_pub,cont_pub,slug,id_cat) values('".$_POST['title_pub']."' , '".$desc."' , '".$cont."' , '".$slugify($_POST['title_pub'])."','".$_POST['id_cat']."')";
     if($con->query($query)){
-        header('Location: /blog/posts/pub');
+        header('Location: /awesome-blog/posts/pub');
         exit;
     }
     else{
