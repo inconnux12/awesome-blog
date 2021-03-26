@@ -18,8 +18,8 @@
              </form>
             </li-->    
       <?php if(!isset($_SESSION['login'])){ ?> 
-        <li class="tab"><a  href="/<?=DIR?>/login" ><i class="material-icons left">edit</i>Sign In</a></li>
-        <li class="tab"><a  href="/<?=DIR?>/register" ><i class="material-icons left">add</i>Sign Up</a> </li>
+        <li class="tab"><a  href="<?=DIR?>login" ><i class="material-icons left">edit</i>Sign In</a></li>
+        <li class="tab"><a  href="<?=DIR?>register" ><i class="material-icons left">add</i>Sign Up</a> </li>
       <?php } ?>
       </ul>
     </div>
