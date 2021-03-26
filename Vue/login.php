@@ -10,10 +10,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=DIR?>asset/materialize/css/materialize.min.css">
-    <link rel="stylesheet" href="<?=DIR?>asset/css/ico.min.css">
-    <link rel="stylesheet" href="<?=DIR?>asset/css/login.css">
-    <title>no</title>
+    <link rel="stylesheet" href="<?=ASSETS?>materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="<?=ASSETS?>css/ico.min.css">
+    <link rel="stylesheet" href="<?=ASSETS?>css/login.css">
+    <title>Login</title>
 </head>
 <body>
     <div class="container main">
@@ -27,7 +27,7 @@
                 <small style="color:red;text-align:center;">error please retry</small>
                 <?php  }  ?>
                 <div class="row col s12 lgn-tlt">LOGIN</div>
-                <form action="<?=DIR?>asset/php/private/login.php" method="post">
+                <form action="<?=HOST?>private/login" method="post">
                     <div class="input-field col s12">
                         <input id="email" type="text" class="validate clr-inp" name="user_l_name">
                         <label for="email">Last Name</label>
@@ -52,6 +52,6 @@
         </div>
     </div>
     <?php unset($_SESSION['error']);unset($_SESSION['register']);$_SESSION['error']=false;$_SESSION['register']=false;?>
-    <script src="<?=DIR?>asset/materialize/js/materialize.min.js"></script>
+    <script src="<?=ASSETS?>materialize/js/materialize.min.js"></script>
 </body>
 </html>

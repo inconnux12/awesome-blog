@@ -1,13 +1,13 @@
 <?php 
-require "asset/php/index/header.php";
-require "asset/php/index/nav.php";
+require VUE."header.php";
+require VUE."nav.php";
     $sql="select * from publications ";
     $resultat=$con->query($sql);
     if($resultat->num_rows>0){
         while($row=$resultat->fetch_assoc()){?>
             <div class="col s12 article" style="position: relative;">
                 <div class="article_image">
-                    <img class="img" src="<?=DIR?>asset/img/img.png" alt=""/>
+                    <img class="img" src="<?=ASSETS?>img/img.png" alt=""/>
                 </div>
                 <div class="article_contenu">
                     <div class="article_date" style="font-size:13px;">publier le <?=$row['created_at']?></div>
@@ -24,4 +24,4 @@ require "asset/php/index/nav.php";
             </div>
         <div class="col s12 sidebar_contenu_separateur"><hr class="sidebar_separateur"></div>
         <?php } }
-    require "asset/php/index/footer.php";?>
+    require VUE."footer.php";?>

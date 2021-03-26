@@ -71,15 +71,16 @@ CREATE TABLE IF NOT EXISTS `markbook` (
 DROP TABLE IF EXISTS `publications`;
 CREATE TABLE IF NOT EXISTS `publications` (
   `id_pub` int(3) NOT NULL AUTO_INCREMENT,
-  `title_pub` varchar(30) NOT NULL,
+  `title_pub` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `desc_pub` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `cont_pub` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `slug` varchar(30) NOT NULL,
   `id_cat` int(3) NOT NULL,
   PRIMARY KEY (`id_pub`),
   KEY `id_cat` (`id_cat`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `publications`

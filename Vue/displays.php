@@ -1,6 +1,6 @@
 <?php 
-    require "asset/php/index/header.php";
-    require "asset/php/index/nav.php";
+    require VUE."header.php";
+    require VUE."nav.php";
 ?>
           <div class="container">
             <div class="row" style="padding-top:20px">
@@ -9,12 +9,12 @@
             </div>
             <?php
                 if($action=='pub'){
-                    $sql="select id_pub, title_pub,name_cat from categorie , publications where publications.id_cat = categorie.id_cat;";
+                    $sql="select * from categorie , publications where publications.id_cat = categorie.id_cat;";
                     $res=$con->query($sql);
                     ?>
 
     <div class="col s3 offset-s1">
-      <a href="<?=DIR?>posts/add/pub" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
+      <a href="<?=HOST?>posts/add/pub" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
     </div>
     </div>
     <div class="row">
@@ -34,7 +34,7 @@
            <tr>
             <td> <?= $row['title_pub']?></td>
             <td><?= $row['name_cat']?></td>
-            <td style="text-align:center;"><a href="<?=DIR?>posts/mod/pub/<?=$row['id_pub']?>" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=DIR?>asset/php/private/supp_p.php?type=pub&id=<?=$row['id_pub']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
+            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/pub/<?=$row['slug']?>/<?=$row['id_pub']?>" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/pub/<?=$row['id_pub']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
           </tr>
           <?php }} ?> 
       </tbody>
@@ -47,7 +47,7 @@
                     $res=$con->query($sql);
                     ?> 
     <div class="col s3 offset-s1">
-      <a href="<?=DIR?>posts/add/cat" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
+      <a href="<?=HOST?>posts/add/cat" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
     </div>
     </div>
     <div class="row">
@@ -64,7 +64,7 @@
                 while($row=$res->fetch_assoc()){?>
                   <tr>
             <td><?= $row['name_cat']?></td>
-            <td style="text-align:center;"><a href="<?=DIR?>posts/mod/cat/<?=$row['id_cat']?>"  class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=DIR?>asset/php/private/supp_c.php?type=cat&id=<?=$row['id_cat']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
+            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/cat/<?=$row['name_cat']?>/<?=$row['id_cat']?>"  class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/cat/<?=$row['id_cat']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
           </tr> <?php }}?> 
     </tbody>
       </table>
@@ -74,5 +74,5 @@
                 </div>
             </div>
 
-            <?php require "asset/php/index/footer.php";?>
+            <?php require VUE."footer.php";?>
      

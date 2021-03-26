@@ -1,21 +1,21 @@
 
-const DIR= window.location.pathname.split('/')[1]
+const DIR="http://"+window.location.hostname+'/'+window.location.pathname.split('/')[1]+'/'
 function add(id){
     let ico=document.querySelector(".fav"+id)
     let getxml= new XMLHttpRequest()
     getxml.onreadystatechange=function(){
         if(this.readyState===4 && this.status===200){
-            if(this.responseText==="1"){    
-                ico.classList.add('.active')
-            }
-           else{
-                console.log(this.responseText)
-            }
+            
+            console.log(this.responseText)
+            
         }
     }
-    getxml.open('GET','/'+DIR+'/asset/php/private/save.php?id='+id,true)
+    getxml.open('GET',DIR+'private/bookmark/'+id,true)
     getxml.send()
 }
+try{
+    var tmp=document.querySelector('table tbody').innerHTML
+}catch(e){}
 
 function search(val,typ) {
     let tbody=document.querySelector('table tbody')
@@ -23,11 +23,16 @@ function search(val,typ) {
     let getxml= new XMLHttpRequest()
     getxml.onreadystatechange=function(){
         if(this.readyState===4 && this.status===200){
-            tbody.innerHTML=this.responseText
-            if(tbody.classList.contains('hide'))
+            if(this.responseText=='error 404'){
+                tbody.innerHTML=tmp
                 tbody.classList.remove('hide')
+            }
+            else if(this.responseText!='error 404'){
+                tbody.innerHTML=this.responseText
+                tbody.classList.remove('hide')
+            }
         }
     }
-    getxml.open('GET','/'+DIR+'/asset/php/private/search.php?q='+val+'&type='+typ,true)
+    getxml.open('GET',DIR+'private/search/'+typ+'/'+val,true)
     getxml.send()
 }

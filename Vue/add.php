@@ -1,13 +1,13 @@
 <?php
-require "asset/php/index/header.php";
-require "asset/php/index/nav.php";
+require VUE."header.php";
+require VUE."nav.php";
 if($action=='pub'){
     $sql="select * from categorie";
     $res=$con->query($sql);
 }
 ?>
           <?php if($action=='pub'){?>
-          <form action="<?=DIR?>asset/php/private/adds_p.php" method="post">
+          <form action="<?=HOST?>private/add/pub" method="post">
                     <div class="input-field col s6">
                         <input name="title_pub" id="title_pub" type="text" class="validate clr-inp">
                         <label for="title_pub">title post</label>
@@ -35,7 +35,7 @@ if($action=='pub'){
                     </div> 
                 </form>
                 <?php } elseif($action=='cat'){ ?> 
-                    <form action="asset/php/private/adds_c.php" method="post">
+                    <form action="<?=HOST?>private/add/cat" method="post">
                     <div class="input-field col s12">
                         <input name="name_cat" id="name_cat" type="text" class="validate clr-inp">
                         <label for="name_cat">name of categorie</label>
@@ -45,5 +45,5 @@ if($action=='pub'){
                     </div> 
                 </form>
                 <?php } 
-                require "asset/php/index/footer.php";
+                require VUE."footer.php";
                 ?>
