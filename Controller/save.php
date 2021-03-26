@@ -7,12 +7,12 @@ if($result->num_rows>0){
         if((int)$row['COUNT(1)']>0){
             $query="delete from markbook where id_pub='".$id."'and user_id='".$_SESSION['user_id']."'";
             $con->query($query);
-            echo 'supprimer';
+            echo '0';
         }
         else{
             $query="insert into markbook (id_pub,user_id) values('".$id."','".$_SESSION['user_id']."')";
             $con->query($query);
-            echo 'ajouter';
+            echo '1';
         }
     }
 
@@ -20,7 +20,7 @@ if($result->num_rows>0){
 else{
     $query="insert into markbook (id_pub,user_id) values('".$id."','".$_SESSION['user_id']."')";
     if($con->query($query)){
-        echo 'ajouter vide';
+        echo '1';
         exit();
     }
     else{

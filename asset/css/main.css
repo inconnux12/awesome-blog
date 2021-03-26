@@ -48,6 +48,12 @@ html,body{
     flex-shrink: 0 1;
     
 }
+.exist{
+    color:green;
+}
+.removed{
+    color: red;
+}
 .article_contenu{
     width: 66%;
     display: flex;

@@ -12,7 +12,7 @@ if($res->num_rows>0){
 </div>
 <div class="article_contenu">
 <div class="article_date" style="font-size:13px;">publier le <?=$row['created_at']?></div>
-<div class="atricle_titre"><a href="post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a><i class=" medium material-icons" id="<?=$row['id_pub']?>" onclick="add(this.getAttribute('id'))" style="position: absolute;top:0;right:0;cursor:pointer;">star_border</i></div>
+<div class="atricle_titre"><a href="post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a><i class=" medium material-icons fav<?=$row['id_pub']?> exist" id="<?=$row['id_pub']?>" onclick="add(this.getAttribute('id'))" style="position: absolute;top:0;right:0;cursor:pointer;">star_border</i></div>
 <div class="article_text" style="font-size:20px;">
 <?=$row['desc_pub']?>
 </div>
