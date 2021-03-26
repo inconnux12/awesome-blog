@@ -9,7 +9,7 @@ $query="insert into users(user_f_name,user_l_name,mail,password,role) values('".
 if($con->query($query)){
     session_start();
     $_SESSION['register']=1;
-    header('Location: /'.DIR.'/login');
+    header('Location: '.DIR.'login');
     exit;
 }
 else{

@@ -28,11 +28,11 @@
         <?php
           if(isset($_SESSION['login'])){
             if(isset($_SESSION['role'])&&$_SESSION['role']){ ?>
-        <li class="tab"><a href="/<?=DIR?>/posts/pub" id="list_pub">articles</a></li>
-        <li class="tab"><a href="/<?=DIR?>/posts/cat" id="list_cat">categories</a></li>
+        <li class="tab"><a href="<?=DIR?>posts/pub" id="list_pub">articles</a></li>
+        <li class="tab"><a href="<?=DIR?>posts/cat" id="list_cat">categories</a></li>
         <?php } ?>
-        <li class="tab"><a href="/<?=DIR?>/bookmarks">bookmarks</a></li>
-        <li class="tab"><a href="/<?=DIR?>/asset/php/private/logout.php">logout</a></li>
+        <li class="tab"><a href="<?=DIR?>bookmarks">bookmarks</a></li>
+        <li class="tab"><a href="<?=DIR?>asset/php/private/logout.php">logout</a></li>
         <?php }?>
         
         <li class="tab"><a class="dropdown-trigger" data-target="dropdown1" href="#">Cateories<i class="material-icons right">arrow_drop_down</i></a></li>

@@ -29,9 +29,9 @@
             </div>
           </div>
         </footer>
-        <script src="/<?=DIR?>/asset/js/main.js"></script> 
-        <script src="/<?=DIR?>/asset/materialize/js/materialize.min.js"></script>
-        <script src="/<?=DIR?>/asset/js/style.js"></script> 
+        <script src="<?=DIR?>asset/js/main.js"></script> 
+        <script src="<?=DIR?>asset/materialize/js/materialize.min.js"></script>
+        <script src="<?=DIR?>asset/js/style.js"></script> 
   
 </body>
 

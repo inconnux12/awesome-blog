@@ -1,2 +1,2 @@
 <?php
-define("DIR",explode("\\",explode("www\\",__dir__)[1])[0]);
+define("DIR",explode('asset',$_SERVER['PHP_SELF'])[0]);

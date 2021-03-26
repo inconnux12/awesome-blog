@@ -27,7 +27,7 @@
                 <small style="color:red;text-align:center;">error please retry</small>
                 <?php  }  ?>
                 <div class="row col s12 lgn-tlt">LOGIN</div>
-                <form action="/<?=DIR?>/asset/php/private/login.php" method="post">
+                <form action="<?=DIR?>asset/php/private/login.php" method="post">
                     <div class="input-field col s12">
                         <input id="email" type="text" class="validate clr-inp" name="user_l_name">
                         <label for="email">Last Name</label>
@@ -47,11 +47,11 @@
             <div class="col s6 img-side">
                 <h3>Welcome to Login</h3>
                 <h5>don't have an account?</h5>
-                <a href="/<?=DIR?>/register" class=" waves-light btn-large clr-btn">register</a>
+                <a href="<?=DIR?>register" class=" waves-light btn-large clr-btn">register</a>
             </div>
         </div>
     </div>
     <?php unset($_SESSION['error']);unset($_SESSION['register']);$_SESSION['error']=false;$_SESSION['register']=false;?>
-    <script src="/<?=DIR?>/asset/materialize/js/materialize.min.js"></script>
+    <script src="<?=DIR?>asset/materialize/js/materialize.min.js"></script>
 </body>
 </html>

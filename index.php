@@ -1,14 +1,19 @@
 <?php 
 session_start();
-define("DIR",explode("www\\",__dir__)[1]);
+
+define("DIR",explode('index.php',$_SERVER['PHP_SELF'])[0]);
+define("SUBDIR",explode('/',$_SERVER['PHP_SELF'])[1]);
+
 require "vendor/autoload.php"; 
 require "asset/php/private/connection.php";
 require "asset/php/private/slugify.php";
 
-
 $router=new AltoRouter();
-$router->setBasePath("/".DIR);
+$router->setBasePath("/".SUBDIR);
 $router->map('GET','/',function() use($con){
+    require "asset/php/pages/home.php";
+});
+$router->map('GET','/tags/[:action]',function($action) use($con){
     require "asset/php/pages/home.php";
 });
 $router->map('GET','/login',function() use($con){
@@ -24,7 +29,7 @@ $router->map('GET','/posts/[a:action]',function($action) use($con){
         }
     }
     else{
-        header('Location:/'.DIR.'/');   
+        header('Location:'.DIR);   
     }
 
 });
@@ -35,7 +40,7 @@ $router->map('GET','/posts/add/[a:action]',function($action) use($con){
         }
     }
     else{
-        header('Location:/'.DIR.'/');   
+        header('Location:'.DIR);   
     }
 
 });
@@ -46,7 +51,7 @@ $router->map('GET','/posts/mod/[a:action]/[i:id]',function($action,$id) use($con
         }
     }
     else{
-        header('Location:/'.DIR.'/');   
+        header('Location:'.DIR);   
     }
 
 });
