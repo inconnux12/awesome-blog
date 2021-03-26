@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="<?=ASSETS?>materialize/css/materialize.min.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/ico.min.css">
     <link rel="stylesheet" href="<?=ASSETS?>css/login.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
     <div class="container main">
     
         <div class="row z-depth-1 lgn-cnt">
-            <div class="col s6 form-side">
+            <div class="col s12 m7 form-side">
                 <?php if(isset($_SESSION['register'])&& $_SESSION['register']){?>
                     <div style="color:green;text-align:center;">register successfully you can login now</div>
                     <?php }?>
@@ -36,18 +37,34 @@
                         <input id="password" type="password" class="validate" name="password">
                         <label for="password">Password</label>
                     </div>
-                    <div class="input-field col s12 dv-btn">
-                        <input type="submit" class=" waves-light btn-large btn clr-btn" value="send">
+                    <div class="input-field col s4 offset-s3 ">
+                        <button class="btn grey darken-3 waves-effect waves-light btn-large" type="submit" name="action" value="send" >Sign In
+                        <i class="material-icons left">navigate_next</i>
+                        </button>
                     </div>
+                    
                     <div class="row col s12 fgt-pss">
-                        <a href="#">forgot your password</a>
+                        <a href="#"><u>forgot your password</u></a>
                     </div>
                 </form>
             </div>
-            <div class="col s6 img-side">
+            <div class="col m5 img-side">
                 <h3>Welcome to Login</h3>
                 <h5>don't have an account?</h5>
-                <a href="<?=DIR?>register" class=" waves-light btn-large clr-btn">register</a>
+                <!-- <a href="register.php" class=" waves-light btn-large clr-btn">register</a> -->
+
+                <button class="btn grey darken-3 waves-effect waves-light btn-large " type="submit" name="action" style="width: 50%;"><a href="register.php" style="color:white;">Sign Up</a>
+                    <i class="material-icons left">add</i>
+                </button>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s4 ">
+                <a href="<?=HOST?>" style="color:white;"><button class="btn grey darken-3 waves-effect waves-light btn-large " type="submit" name="" style="margin-top: 2px;">  Return Home 
+                    <i class="material-icons left">arrow_back</i></button>
+                </a>
             </div>
         </div>
     </div>

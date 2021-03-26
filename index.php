@@ -42,7 +42,7 @@ $router->map('GET','/posts/add/[a:action]',function($action) use($con){
     }
 
 });
-$router->map('GET','/posts/mod/[a:action]/[a]/[i:id]',function($action,$id) use($con){
+$router->map('GET','/posts/mod/[a:action]/[i:id]',function($action,$id) use($con){
     if(isset($_SESSION['login'])){
         if(isset($_SESSION['role'])&&$_SESSION['role']){
             require VUE."mody.php";

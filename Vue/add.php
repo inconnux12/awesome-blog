@@ -4,9 +4,7 @@ require VUE."nav.php";
 if($action=='pub'){
     $sql="select * from categorie";
     $res=$con->query($sql);
-}
 ?>
-          <?php if($action=='pub'){?>
           <form action="<?=HOST?>private/add/pub" method="post">
                     <div class="input-field col s6">
                         <input name="title_pub" id="title_pub" type="text" class="validate clr-inp">

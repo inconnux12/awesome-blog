@@ -50,7 +50,7 @@
             <div class="col s6 img-side">
                 <h3>Welcome visitor</h3>
                 <h5>already have an account?</h5>
-                <a href="login.php" class=" waves-light btn-large clr-btn">login</a>
+                <a href="<?=HOST?>login.php" class=" waves-light btn-large clr-btn">login</a>
             </div>
         </div>
     </div>

@@ -7,4 +7,4 @@ define("DIR",ROOT.'/'.DIRNAME.'/');
 define("MODEL",DIR.'Model/');
 define("VUE",DIR.'Vue/');
 define("CONTROLLER",DIR.'Controller/');
-define("ASSETS",HOST.'asset/');
+define("ASSETS",HOST.'assets/');

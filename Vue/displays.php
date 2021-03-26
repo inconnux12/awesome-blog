@@ -34,7 +34,7 @@
            <tr>
             <td> <?= $row['title_pub']?></td>
             <td><?= $row['name_cat']?></td>
-            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/pub/<?=$row['slug']?>/<?=$row['id_pub']?>" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/pub/<?=$row['id_pub']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
+            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/pub/<?=$row['id_pub']?>" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/pub/<?=$row['id_pub']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
           </tr>
           <?php }} ?> 
       </tbody>
@@ -64,7 +64,7 @@
                 while($row=$res->fetch_assoc()){?>
                   <tr>
             <td><?= $row['name_cat']?></td>
-            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/cat/<?=$row['name_cat']?>/<?=$row['id_cat']?>"  class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/cat/<?=$row['id_cat']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
+            <td style="text-align:center;"><a href="<?=HOST?>posts/mod/cat/<?=$row['id_cat']?>"  class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/cat/<?=$row['id_cat']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
           </tr> <?php }}?> 
     </tbody>
       </table>
