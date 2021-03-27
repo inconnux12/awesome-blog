@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 20 mars 2021 à 12:14
+-- Généré le : sam. 27 mars 2021 à 18:41
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -34,11 +34,12 @@ CREATE TABLE IF NOT EXISTS `categorie` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_cat`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
 --
+
 
 
 -- --------------------------------------------------------
@@ -49,13 +50,15 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 
 DROP TABLE IF EXISTS `markbook`;
 CREATE TABLE IF NOT EXISTS `markbook` (
+  `id_mark` int(3) NOT NULL AUTO_INCREMENT,
   `id_pub` int(3) NOT NULL,
   `user_id` int(3) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_mark`),
   KEY `id_pub` (`id_pub`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `markbook`
@@ -74,17 +77,19 @@ CREATE TABLE IF NOT EXISTS `publications` (
   `title_pub` varchar(50) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `desc_pub` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `cont_pub` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `img_pub` varchar(30) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `uploaded_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `slug` varchar(30) NOT NULL,
   `id_cat` int(3) NOT NULL,
   PRIMARY KEY (`id_pub`),
   KEY `id_cat` (`id_cat`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `publications`
 --
+
 
 
 -- --------------------------------------------------------
@@ -104,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `role` tinyint(1) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -112,7 +117,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `user_f_name`, `user_l_name`, `mail`, `password`, `created_at`, `updated_at`, `role`) VALUES
 (1, 'root', 'root', 'root@mail.com', 'root', '2021-03-17 12:52:39', '2021-03-17 12:52:39', 1),
-(23, 'user', 'user', 'user@mail.com', 'user', '2021-03-18 12:17:16', '2021-03-18 12:17:16', 0);
+(23, 'user', 'user', 'user@mail.com', 'user', '2021-03-18 12:17:16', '2021-03-18 12:17:16', 0),
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
