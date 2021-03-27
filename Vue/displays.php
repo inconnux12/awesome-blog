@@ -4,13 +4,12 @@
 ?>
           <div class="container">
             <div class="row" style="padding-top:20px">
+              <div class="col s12">
             <?php
                 if($action=='pub'){
                     $sql="select * from categorie , publications where publications.id_cat = categorie.id_cat;";
                     $res=$con->query($sql);
                     ?>
-
-    <div class="col s12">
       <a href="<?=HOST?>posts/add/pub" style="width:100%" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
     </div>
     </div>
@@ -43,8 +42,7 @@
                     $sql="select * from categorie;";
                     $res=$con->query($sql);
                     ?> 
-    <div class="col s3 offset-s1">
-      <a href="<?=HOST?>posts/add/cat" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
+      <a href="<?=HOST?>posts/add/cat" style="width:100%" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
     </div>
     </div>
     <div class="row">

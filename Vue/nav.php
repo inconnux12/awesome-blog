@@ -22,7 +22,7 @@
         <?php } ?>
         <li class="tab"><a href="<?=HOST?>bookmarks">bookmarks</a></li>
         <?php }?>
-        <li class="input-field col s4">
+        <li class="input-field col s10">
           <input id="search" type="search" required placeholder="Search" targget="<?=isset($action)?$action:"q"?>" onkeyup="search(this.value,this.getAttribute('targget'))">    
          </li>
       </ul>

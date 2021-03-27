@@ -40,9 +40,6 @@ if($action=='pub'){
                         <input name="name_cat" id="name_cat" type="text" class="validate clr-inp">
                         <label for="name_cat">name of categorie</label>
                     </div>
-                    <div class="input-field col s12">
-                        <input type="file" name="img" id="">
-                    </div>
                     <div class="input-field col s12 dv-btn">
                         <input type="submit" class=" waves-light btn-large btn clr-btn" value="send">
                     </div> 

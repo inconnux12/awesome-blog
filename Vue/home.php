@@ -4,13 +4,13 @@ require VUE."nav.php";
     $sql="select * from publications";
     $resultat=$con->query($sql);
     if($resultat->num_rows>0){
-        while($row=$resultat->fetch_assoc()){?>
+        while($row=$resultat->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;?>
             <div class="col s12 article" style="position: relative;">
                 <div class="article_image">
                     <img class="img" src="<?=ASSETS?>img/<?=$row['img_pub']?>" alt=""/>
                 </div>
                 <div class="article_contenu">
-                    <div class="article_date" style="font-size:13px;">publier le <?=$row['created_at']?></div>
+                   <div class="article_date" style="font-size:13px;">publier il y a <?= secondsToTime($created) ?></div>
                     <div class="atricle_titre">
                         <a href="<?=HOST?>post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a>
                 <?php if(isset($_SESSION['login'])&&$_SESSION['login']){

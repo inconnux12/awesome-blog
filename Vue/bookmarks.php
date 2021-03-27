@@ -5,13 +5,13 @@ $sql="select * from publications,markbook where user_id='".$_SESSION['user_id'].
 $res=$con->query($sql);
 
 if($res->num_rows>0){
-  while($row=$res->fetch_assoc()){?>
+  while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;?>
   <div class="col s12 article" style="position: relative;">
 <div class="article_image">
 <img class="img" src="<?=ASSETS?>img/<?=$row['img_pub']?>" alt=""/>
 </div>
 <div class="article_contenu">
-<div class="article_date" style="font-size:13px;">publier le <?=$row['created_at']?></div>
+<div class="article_date" style="font-size:13px;">publier il y a <?= secondsToTime($created) ?></div>
 <div class="atricle_titre"><a href="post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a><i class=" medium material-icons fav<?=$row['id_pub']?> " id="<?=$row['id_pub']?>" onclick="add(this.getAttribute('id'))" style="position: absolute;top:0;right:0;cursor:pointer;">star</i></div>
 <div class="article_text" style="font-size:20px;">
 <?=$row['desc_pub']?>

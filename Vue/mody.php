@@ -38,7 +38,7 @@ elseif($action=='cat'){
                         <label for="cont_pub">containe of post</label>
                     </div>     
                     <div class="input-field col s12">
-                        <input type="file" name="img" id="">
+                        <input type="file" name="img" id="" value=<?= $row2['img_pub']?>>
                     </div>               
                     <div class="input-field col s12 dv-btn">
                         <input type="submit" class=" waves-light btn-large btn clr-btn" value="modifier">
