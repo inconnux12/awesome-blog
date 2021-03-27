@@ -57,6 +57,9 @@ $router->map('GET','/bookmarks',function() use($con){
     if(isset($_SESSION['login'])){
         require VUE."bookmarks.php";
     }
+    else{
+        header('Location:'.HOST);   
+    }
 });
 $router->map('GET','/post/[:action]',function($action) use($con){
     require VUE."article.php";

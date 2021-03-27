@@ -36,7 +36,10 @@ elseif($action=='cat'){
                     <div class="input-field col s12">
                     <textarea name="cont_pub" id="cont_pub" class="materialize-textarea" cols="30" rows="30" ><?= $row2['cont_pub']?></textarea>
                         <label for="cont_pub">containe of post</label>
-                    </div>                  
+                    </div>     
+                    <div class="input-field col s12">
+                        <input type="file" name="img" id="">
+                    </div>               
                     <div class="input-field col s12 dv-btn">
                         <input type="submit" class=" waves-light btn-large btn clr-btn" value="modifier">
                     </div>    

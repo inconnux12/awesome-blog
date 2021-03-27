@@ -4,17 +4,14 @@
 ?>
           <div class="container">
             <div class="row" style="padding-top:20px">
-              <div class="col s8">
-                <input type="text" plachholder="search" targget="<?=$action?>" onfocus="focus()" onkeyup="search(this.value,this.getAttribute('targget'))">
-            </div>
             <?php
                 if($action=='pub'){
                     $sql="select * from categorie , publications where publications.id_cat = categorie.id_cat;";
                     $res=$con->query($sql);
                     ?>
 
-    <div class="col s3 offset-s1">
-      <a href="<?=HOST?>posts/add/pub" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
+    <div class="col s12">
+      <a href="<?=HOST?>posts/add/pub" style="width:100%" class="green darken-4 waves-light btn-large clr-btn">ajouter</a>
     </div>
     </div>
     <div class="row">
@@ -32,7 +29,7 @@
           if($res->num_rows>0){
              while($row=$res->fetch_assoc()){?>
            <tr>
-            <td> <?= $row['title_pub']?></td>
+            <td><a href="<?=HOST?>post/<?=$row['slug']?>" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a></td>
             <td><?= $row['name_cat']?></td>
             <td style="text-align:center;"><a href="<?=HOST?>posts/mod/pub/<?=$row['id_pub']?>" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?=HOST?>private/supp/pub/<?=$row['id_pub']?>" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
           </tr>
