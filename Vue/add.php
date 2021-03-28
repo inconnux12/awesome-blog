@@ -27,6 +27,11 @@ if($action=='pub'){
                     <textarea name="cont_pub" id="cont_pub" class="materialize-textarea" cols="30" rows="30"></textarea>
                         <label for="cont_pub">containe of post</label>
                     </div> 
+                    <div class="input-field col s6">                        
+                        <span style="cursor:pointer" onClick="tags()" class="green darken-4 waves-light btn-large clr-btn">ajouter</span>
+                        <input name="tags_pub[]" id="tags" type="text" class="validate clr-inp" placeholder="tags">
+
+                    </div>
                     <div class="input-field col s12">
                         <input type="file" name="img" id="">
                     </div>                

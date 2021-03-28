@@ -6,17 +6,18 @@ function add(id){
     let getxml= new XMLHttpRequest()
     getxml.onreadystatechange=function(){
         if(this.readyState===4 && this.status===200){
-            if(this.responseText==1)
-                ico.style.color='green'
+            if(this.responseText==1){
                 if(SUBDIR==''){
                     ico.innerHTML='star'
                 }
-            else
-                ico.style.color='red'
+            }
+            else{
+                ico.innerHTML='star_border'
                 if(SUBDIR=='bookmarks'){
                     let remove_post=ico.parentNode.parentNode.parentNode
                     remove_post.parentNode.removeChild(remove_post)
                 }
+            }
         }
     }
     getxml.open('GET',DIR+'private/bookmark/'+id,true)
@@ -62,4 +63,15 @@ function search(val,typ) {
     }
     getxml.open('GET',DIR+'private/search/'+typ+'/'+val,true)
     getxml.send()
+}
+
+function tags(){ 
+    let input_tags=document.querySelector('#tags')
+    let nd=document.createElement('input')
+    nd.setAttribute('name',"tags_pub[]")
+    nd.setAttribute('id',"tags")
+    nd.setAttribute('type',"text")
+    nd.setAttribute('placeholder',"tags")
+    nd.className="validate clr-inp"
+    input_tags.parentNode.appendChild(nd)
 }

@@ -1,16 +1,18 @@
 <?php 
 require VUE."header.php";
 require VUE."nav.php";
-    $sql="select * from publications";
+    $sql="select * from publications, categorie where categorie.id_cat=publications.id_cat";
     $resultat=$con->query($sql);
     if($resultat->num_rows>0){
-        while($row=$resultat->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;?>
+        while($row=$resultat->fetch_assoc()){
+            $tags=explode('-',$row['tags_pub']);
+            $de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;?>
             <div class="col s12 article" style="position: relative;">
                 <div class="article_image">
                     <img class="img" src="<?=ASSETS?>img/<?=$row['img_pub']?>" alt=""/>
                 </div>
                 <div class="article_contenu">
-                   <div class="article_date" style="font-size:13px;">publier il y a <?= secondsToTime($created) ?></div>
+                   <div class="article_date" style="font-size:13px;">publier il y a <?= secondsToTime($created) ?><br> <span style="color:black">Categorie: <?=$row['name_cat']?></span></div>
                     <div class="atricle_titre">
                         <a href="<?=HOST?>post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a>
                 <?php if(isset($_SESSION['login'])&&$_SESSION['login']){
@@ -21,8 +23,9 @@ require VUE."nav.php";
                 <?php }}?>
                     </div>
                     <div class="article_text" style="font-size:20px;">
-            <?=$row['desc_pub']?>
+                        <?=$row['desc_pub']?>
                     </div>
+                    <span style="color:black">tags: <?php foreach($tags as $tag):echo $tag.","; endforeach  ?></span>
                 </div>
             </div>
         <div class="col s12 sidebar_contenu_separateur"><hr class="sidebar_separateur"></div>

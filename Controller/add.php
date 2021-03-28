@@ -39,10 +39,12 @@ elseif($action=='pub'){
         $title=$con->real_escape_string($_POST['title_pub']);
         $desc=$con->real_escape_string($_POST['desc_pub']);
         $cont=$con->real_escape_string($_POST['cont_pub']);
+        $id_cat=$_POST['id_cat'];
+        $insert_data = implode("-", $_POST['tags_pub']);
         if(empty($file_name)){
             $file_name="img.png";
         }
-        $query="insert into publications(title_pub,desc_pub,cont_pub,img_pub,slug,id_cat) values('".$title."' , '".$desc."' , '".$cont."' , '".$file_name."' , '".$slugify($title)."','".$_POST['id_cat']."')";
+        $query="insert into publications(title_pub,desc_pub,cont_pub,img_pub,tags_pub,slug,id_cat) values('".$title."' , '".$desc."' , '".$cont."' , '".$file_name."' , '".$insert_data."','".$slugify($title)."','".$id_cat."')";
         if($con->query($query)){
             header('Location: '.HOST.'posts/pub');
             exit;
