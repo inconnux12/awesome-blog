@@ -1,14 +1,14 @@
 <div class="navbar-fixed"> 
   <nav class="nav-extended #546e7a blue-grey darken-1">
     <div class="nav-wrapper">
-      <a href="<?=HOST?>" class="brand-logo ">Welcome To Life Blog</a>
+      <a href="<?=HOST?>" class="brand-logo center">Welcome To Life Blog</a>
 
-      <ul id="nav-mobile" class="right hide-on-med-and-down">    
+      <ul id="nav-mobile" class="right">    
       <?php if(!isset($_SESSION['login'])){ ?> 
         <li class="tab"><a  href="<?=HOST?>login" ><i class="material-icons left">edit</i>Sign In</a></li>
         <li class="tab"><a  href="<?=HOST?>register" ><i class="material-icons left">add</i>Sign Up</a> </li>
       <?php }else{?>
-        <li class="tab"><a href="<?=HOST?>private/logout"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+        <li class="tab"><a href="<?=HOST?>private/logout"><i class="material-icons left">logout</i>Logout</a></li>
         <?php }?>
       </ul>
     </div>
@@ -22,6 +22,7 @@
         <?php } ?>
         <li class="tab"><a href="<?=HOST?>bookmarks">bookmarks</a></li>
         <?php }?>
+        <li class="tab"><a href="<?=HOST?>">Home</a></li>
         <li class="input-field col s10">
           <input id="search" type="search" required placeholder="Search" targget="<?=isset($action)?$action:"q"?>" onkeyup="search(this.value,this.getAttribute('targget'))">    
          </li>

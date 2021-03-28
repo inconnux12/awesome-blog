@@ -1,8 +1,11 @@
 <?php
  if(isset($_SESSION['login'])){
-    header('Location: '.DIR);
+    header('Location: '.HOST);
     exit();
  }
+ if(isset($_SESSION['errors'])) {
+    $errors = $_SESSION['errors'];
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,17 +27,23 @@
                 <?php if(isset($_SESSION['register'])&& $_SESSION['register']){?>
                     <div style="color:green;text-align:center;">register successfully you can login now</div>
                     <?php }?>
-            <?php if(isset($_SESSION['error'])&&$_SESSION['error']){?>
+            <?php if(isset($errors['false'])&&$errors['false']){?>
                 <small style="color:red;text-align:center;">error please retry</small>
                 <?php  }  ?>
                 <div class="row col s12 lgn-tlt">LOGIN</div>
                 <form action="<?=HOST?>private/login" method="post">
                     <div class="input-field col s12">
                         <input id="email" type="text" class="validate clr-inp" name="user_l_name">
+                        <?php if(isset($errors['l_name'])): ?>
+                            <small class="text-danger"><?= $errors['l_name'] ?></small>
+                        <?php endif;?>
                         <label for="email">Last Name</label>
                     </div>
                     <div class="input-field col s12">
                         <input id="password" type="password" class="validate" name="password">
+                        <?php if(isset($errors['password'])): ?>
+                            <small class="text-danger"><?= $errors['password'] ?></small>
+                        <?php endif;?>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-field col s4 offset-s3 ">
@@ -44,7 +53,7 @@
                     </div>
                     
                     <div class="row col s12 fgt-pss">
-                        <a href="#"><u>forgot your password</u></a>
+                        <a href="#"><u>forgot your password?</u></a>
                     </div>
                 </form>
             </div>
@@ -53,10 +62,10 @@
                 <h5>don't have an account?</h5>
                 <!-- <a href="register.php" class=" waves-light btn-large clr-btn">register</a> -->
 
-                <button class="btn grey darken-3 waves-effect waves-light btn-large " type="submit" name="action" style="width: 50%;"><a href="register.php" style="color:white;">Sign Up</a>
-                    <i class="material-icons left">add</i>
-                </button>
-
+                
+                   <button class="btn grey darken-3 waves-effect waves-light btn-large " type="submit" name="action" style="width: 50%;">
+                    <a href="<?=HOST?>register" style="color:white;"> Sign Up<i class="material-icons left">add</i></a>
+                    </button>
 
             </div>
         </div>
@@ -68,7 +77,7 @@
             </div>
         </div>
     </div>
-    <?php unset($_SESSION['error']);unset($_SESSION['register']);$_SESSION['error']=false;$_SESSION['register']=false;?>
+    <?php unset($_SESSION['errors']);unset($_SESSION['register']);$_SESSION['register']=false; $errors=[];?>
     <script src="<?=ASSETS?>materialize/js/materialize.min.js"></script>
 </body>
 </html>

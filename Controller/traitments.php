@@ -2,32 +2,45 @@
 
 //session_start();
 if($action=='login'){
-    $sql="select user_id,password,role from users where user_l_name='".$_POST['user_l_name']."'";
-    $result = $con->query($sql);
-    if($result->num_rows>0){
-        while($row=$result->fetch_assoc()){
-            if($_POST['password']==$row['password']){
-                $_SESSION['login']=true;
-                $_SESSION['user_id']=$row['user_id'];
-                if((int)$row['role']){
-                    $_SESSION['role']=true;
-                }
-                else{
-                    $_SESSION['role']=false;
-                }
-                header('Location: '.HOST);
-                exit();
+    $errors=[];
+    if(empty($_POST['user_l_name'])){
+        $errors['l_name']="le champ est VIDE";
+    }
+
+    if(empty($_POST['password'])){
+        $errors['password']="le champ est VIDE";
+    }
+    if(count($errors)==0){
+        $sql="select user_id,password,role from users where user_l_name='".$_POST['user_l_name']."'";
+        $result = $con->query($sql);
+            if($result->num_rows>0){
+                while($row=$result->fetch_assoc()){
+                    if($_POST['password']==$row['password']){
+                        $_SESSION['login']=true;
+                        $_SESSION['user_id']=$row['user_id'];
+                        if((int)$row['role']){
+                            $_SESSION['role']=true;
+                        }
+                        else{
+                            $_SESSION['role']=false;
+                        }
+                        header('Location: '.HOST);
+                        exit();
+                    }
+                    else{
+                        $errors['false']=true;
+                    }
+                }    
             }
-            else{
-                $_SESSION['error']=true;
-                header('Location: ' . $_SERVER['HTTP_REFERER']);
-                exit();
-            }
-        }
-        
+    }
+    else{
+        $_SESSION['errors']=$errors;
+        header('Location: ' . $_SERVER['HTTP_REFERER']);  
     }    
+    
 }
 elseif($action=='register'){
+
     $errors=[];
     $sql="select COUNT(*) from users where user_l_name='".$_POST['user_l_name']."' or mail='".$_POST['mail']."'";
     $res=$con->query($sql);
@@ -58,25 +71,26 @@ elseif($action=='register'){
             if(empty($password)){
                 $errors['password']="le champ est VIDE";
             }
-            if(count($errors)==0){
-                $query="insert into users(user_f_name,user_l_name,mail,password,role) values('".$_POST['user_f_name']."' , '".$_POST['user_l_name']."' , '".$_POST['mail']."' , '".$_POST['password']."' , '".$role."')";
-                if($con->query($query)){
-                    $_SESSION['register']=1;
-                    header('Location: '.HOST.'login');
-                    exit;
-                }
-                else{
-                    echo $con->error;
-                }
+        }
+        if(count($errors)==0){
+            $query="insert into users(user_f_name,user_l_name,mail,password,role) values('".$_POST['user_f_name']."' , '".$_POST['user_l_name']."' , '".$_POST['mail']."' , '".$_POST['password']."' , '".$role."')";
+            if($con->query($query)){
+                $_SESSION['register']=1;
+                echo "nrmlm c bon";
+                header('Location: '.HOST.'login');
+                exit;
             }
             else{
-                $_SESSION['errors']=$errors;
-                header('Location: ' . HOST.'register');
+                echo $con->error;
             }
+        }
+        else{
+            $_SESSION['errors']=$errors;
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
         }
     }
 
-    $con->close();    
+    $con->close();   
 }
 elseif($action=='logout'){
     unset($_SESSION['login']);

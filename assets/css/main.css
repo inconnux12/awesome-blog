@@ -90,6 +90,14 @@ html,body{
    /* width: 99%;
     height: 29%; 
 }*/
+.text-danger{
+    color:red;
+    text-align:center;
+    font-size: larger;
+}
+.alert{
+    padding-top: 20px;
+}
 .active{
     color: blue;
 }

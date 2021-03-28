@@ -3,7 +3,7 @@ body{
     box-sizing: border-box;
     overflow: hidden;
     height: 100%;
-    background:linear-gradient(135deg, grey 0%, rgba(84, 110, 122, 0.1)) ,url('../img/clavier.jpg');
+    background:linear-gradient(135deg, grey 0%, rgba(84, 110, 122, 0.1));
    background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -14,10 +14,14 @@ body{
 }
 .lgn-cnt{
     height: 439px;
+    border-radius:3%; 
+}
+.error{
+    height:523px;
 }
 .lgn-tlt{
     margin-top: 20px;
-    margin-bottom: 0;
+    padding-bottom: 80px;
     margin-left: 0!important;
     text-align: center;
     font-size: xx-large;
@@ -28,6 +32,7 @@ body{
     justify-content: space-evenly;
     background-color:white;
     height: 100%;
+    border-radius:  3% 0 0 3% ;
 }
 .btn{
     width: 100%;
@@ -52,14 +57,26 @@ body{
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
-    color: white;
+    color: black;
     padding-top: 20px;
     padding-bottom: 20px;
-    background: linear-gradient(135deg, grey 0%, #546e7a 100%);
-    
+    background: url('../img/sign.jpg');
+        
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 3% 3% 0;
+   
 }
 h3,h5,button{
     margin:30px auto;
+}
+.text-danger{
+    color:red;
+    text-align:center;
+    font-size: larger;
+}
+.alert{
+    padding-top: 20px;
 }
 
 /*checked color */
