@@ -25,12 +25,18 @@ if($action=='login'){
                             $_SESSION['role']=false;
                         }
                         header('Location: '.HOST);
-                        exit();
                     }
                     else{
                         $errors['false']=true;
+                        $_SESSION['errors']=$errors;
+                        header('Location: ' . $_SERVER['HTTP_REFERER']);
                     }
                 }    
+            }
+            else{
+                $errors['false']=true;
+                $_SESSION['errors']=$errors;
+                header('Location: ' . $_SERVER['HTTP_REFERER']);
             }
     }
     else{
