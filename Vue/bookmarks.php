@@ -5,7 +5,7 @@ $sql="select * from publications,markbook,categorie where categorie.id_cat=publi
 $res=$con->query($sql);
 
 if($res->num_rows>0){
-  while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;
+  while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=CURRENT_TIME-$de;
     $tags=explode('-',$row['tags_pub']);
     ?>
   <div class="col s12 article" style="position: relative;">

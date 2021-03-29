@@ -22,7 +22,7 @@ else{
         $sql="select * from publications,markbook,categorie where (title_pub LIKE '%".$q."%'or name_cat LIKE '%".$q."%' or desc_pub LIKE '%".$q."%'or cont_pub LIKE '%".$q."%' or tags_pub LIKE '%".$q."%') and publications.id_cat = categorie.id_cat and user_id='".$_SESSION['user_id']."' and publications.id_pub=markbook.id_pub";
     }
     $res=$con->query($sql)  or die($con->error);
-    while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;
+    while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=CURRENT_TIME-$de;
         $tags=explode('-',$row['tags_pub']);
     echo  '<div class="col s12 article" style="position: relative;">
             <div class="article_image">

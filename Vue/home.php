@@ -6,7 +6,7 @@ require VUE."nav.php";
     if($resultat->num_rows>0){
         while($row=$resultat->fetch_assoc()){
             $tags=explode('-',$row['tags_pub']);
-            $de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;?>
+            $de = strtotime($row['created_at']);$created=CURRENT_TIME-$de;?>
             <div class="col s12 article" style="position: relative;">
                 <div class="article_image">
                     <img class="img" src="<?=ASSETS?>img/<?=$row['img_pub']?>" alt=""/>

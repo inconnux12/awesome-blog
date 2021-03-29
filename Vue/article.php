@@ -4,8 +4,8 @@ require VUE."nav.php";
 $sql="select * from publications, categorie  where categorie.id_cat=publications.id_cat and slug='".$action."'";
 $res=$con->query($sql);
 if($res->num_rows>0){
-    while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']+3600-$de;
-        $tags=explode('-',$row['tags_pub']);//
+    while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=CURRENT_TIME-$de;
+        $tags=explode('-',$row['tags_pub']);
         ?>
         <div class="col s12 article">
             <div class="article_image">

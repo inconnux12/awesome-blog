@@ -8,7 +8,7 @@ define("MODEL",DIR.'Model/');
 define("VUE",DIR.'Vue/');
 define("CONTROLLER",DIR.'Controller/');
 define("ASSETS",HOST.'assets/');
-
+define('CURRENT_TIME',$_SERVER['REQUEST_TIME']+3600);
 function secondsToTime($seconds) {
     $dtF = new \DateTime('@0');
     $dtT = new \DateTime("@$seconds");
