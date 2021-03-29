@@ -14,8 +14,13 @@ if($action=='pub' || $action=='cat'){
     </tr>';
     }
 }
-elseif($action=='q'){
-    $sql= "select * from categorie , publications where (title_pub LIKE '%".$q."%'or name_cat LIKE '%".$q."%' or desc_pub LIKE '%".$q."%'or cont_pub LIKE '%".$q."%' or tags_pub LIKE '%".$q."%') and publications.id_cat = categorie.id_cat";
+else{
+    if($action=='q'){
+        $sql= "select * from categorie , publications where (title_pub LIKE '%".$q."%'or name_cat LIKE '%".$q."%' or desc_pub LIKE '%".$q."%'or cont_pub LIKE '%".$q."%' or tags_pub LIKE '%".$q."%') and publications.id_cat = categorie.id_cat";
+    }
+    else{
+        $sql="select * from publications,markbook,categorie where (title_pub LIKE '%".$q."%'or name_cat LIKE '%".$q."%' or desc_pub LIKE '%".$q."%'or cont_pub LIKE '%".$q."%' or tags_pub LIKE '%".$q."%') and publications.id_cat = categorie.id_cat and user_id='".$_SESSION['user_id']."' and publications.id_pub=markbook.id_pub";
+    }
     $res=$con->query($sql)  or die($con->error);
     while($row=$res->fetch_assoc()){$de = strtotime($row['created_at']);$created=$_SERVER['REQUEST_TIME']-$de+3600;
         $tags=explode('-',$row['tags_pub']);
@@ -38,7 +43,7 @@ elseif($action=='q'){
                 <div class="article_text" style="font-size:20px;">
                     '.$row['desc_pub'].'
                 </div>
-                <span style="color:black">tags: ';foreach($tags as $tag):echo $tag.","; endforeach; echo '</span>
+                <div style="color:#546e7a;margin-top:20px;">tags:';$end_of=count($tags)-1;foreach($tags as $tag):echo $tag;?><?=($end_of)?",":"";$end_of-=1; endforeach; echo '</div>
             </div>
         </div>
         <div class="col s12 sidebar_contenu_separateur"><hr class="sidebar_separateur"></div>';

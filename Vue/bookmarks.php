@@ -18,7 +18,7 @@ if($res->num_rows>0){
 <div class="article_text" style="font-size:20px;">
 <?=$row['desc_pub']?>
 </div>
-<span style="color:black">tags: <?php foreach($tags as $tag):echo $tag.","; endforeach  ?></span>
+<div style="color:#546e7a;margin-top:20px;">tags: <?php $end_of=count($tags)-1;foreach($tags as $tag):echo $tag;?><?=($end_of)?",":"";$end_of-=1; endforeach  ?></div>
 </div>
 </div>
 <div class="col s12 sidebar_contenu_separateur"><hr class="sidebar_separateur"></div>

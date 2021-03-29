@@ -28,7 +28,10 @@ try{
     
 }catch(e){}
 var tmp2=document.querySelector('#posts').innerHTML
-function search(val,typ) {
+function search(val,typ) {                
+    if(SUBDIR=="bookmarks"){
+        typ='b';
+    }
     let tbody=document.querySelector('table tbody')
     let posts=document.querySelector('#posts') 
     let getxml= new XMLHttpRequest() 
@@ -52,7 +55,6 @@ function search(val,typ) {
                     posts.classList.remove('hide')
                 }
                 else if(this.responseText!='error 404'){
-                    console.log(this.responseText)
                     posts.innerHTML=this.responseText
                     posts.classList.remove('hide')
                 }

@@ -24,7 +24,8 @@ if($action=='pub'){
         $title=$con->real_escape_string($_POST['title_pub']);
         $desc=$con->real_escape_string($_POST['desc_pub']);
         $cont=$con->real_escape_string($_POST['cont_pub']);
-        $query="update publications set title_pub='".$title."' , desc_pub='".$desc."' , cont_pub='".$cont."' , id_cat='".$_POST['id_cat']."' where id_pub='".$id."'";
+        $insert_data = implode("-", $_POST['tags_pub']);
+        $query="update publications set title_pub='".$title."' , desc_pub='".$desc."' , cont_pub='".$cont."' ,tags_pub='".$insert_data."' , id_cat='".$_POST['id_cat']."' where id_pub='".$id."'";
         if($con->query($query)){
             header('Location: '.HOST.'posts/pub');
             exit;
