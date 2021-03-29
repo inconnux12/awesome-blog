@@ -7,7 +7,7 @@ function add(id){
     getxml.onreadystatechange=function(){
         if(this.readyState===4 && this.status===200){
             if(this.responseText==1){
-                if(SUBDIR==''){
+                if(SUBDIR!='bookmarks'){
                     ico.innerHTML='star'
                 }
             }
@@ -28,9 +28,14 @@ try{
     
 }catch(e){}
 var tmp2=document.querySelector('#posts').innerHTML
+
+/***********************************search function */
 function search(val,typ) {                
     if(SUBDIR=="bookmarks"){
         typ='b';
+    }
+    else if(SUBDIR=="post"){
+        typ='q';
     }
     let tbody=document.querySelector('table tbody')
     let posts=document.querySelector('#posts') 
@@ -66,7 +71,7 @@ function search(val,typ) {
     getxml.open('GET',DIR+'private/search/'+typ+'/'+val,true)
     getxml.send()
 }
-
+/**************************************tags add */
 function tags(){ 
     let input_tags=document.querySelector('#tags')
     let nd=document.createElement('input')

@@ -7,3 +7,5 @@ Awesome blog by our students
 -I fixed the search in bookmarks pages
 -I add tags in modify page
 -I fixed the date publication in the displays
+-I changer a litle the display of the nav menu
+-I added the bookmark in the post pages

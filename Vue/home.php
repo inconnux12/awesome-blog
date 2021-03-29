@@ -13,7 +13,7 @@ require VUE."nav.php";
                 </div>
                 <div class="article_contenu">
                    <div class="article_date" style="font-size:13px;">publier il y a <?= secondsToTime($created) ?><br> <span style="color:black">Categorie: <?=$row['name_cat']?></span></div>
-                    <div class="atricle_titre">
+                    <div class="article_titre">
                         <a href="<?=HOST?>post/<?=$row['slug']?>" style="font-size:24px;" id="<?=$row['id_pub']?>"><?=$row['title_pub']?></a>
                 <?php if(isset($_SESSION['login'])&&$_SESSION['login']){
                      $sql2="SELECT COUNT(*) FROM markbook WHERE id_pub='".$row['id_pub']."' AND user_id='".$_SESSION['user_id']."'";

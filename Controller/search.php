@@ -8,7 +8,7 @@ if($action=='pub' || $action=='cat'){
     $res=$con->query($sql)  or die($con->error); 
     while($row=$res->fetch_assoc()){  
     echo'<tr>
-    '.(($action=='pub')?'"<td>'.$row['title_pub'].'</td>"':"").
+    '.(($action=='pub')?'<td>'.$row['title_pub'].'</td>':"").
     '<td>'.$row['name_cat'].'</td>
     <td style="text-align:center;"><a href="'.HOST.'posts/mod/'.$action.'/'.(($action=='pub')?$row['id_pub']:$row['id_cat']).'" class="blue darken-4 waves-light btn-large clr-btn">modify</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.HOST.'private/supp/'.$action.'/'.(($action=='pub')?$row['id_pub']:$row['id_cat']).'" class="red accent-4 waves-light btn-large clr-btn">delete</a></td>
     </tr>';
